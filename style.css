@@ -1,0 +1,476 @@
+/* Google font Inter is loaded in HTML */
+
+/* Reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--bg, #f4f4f4);
+  color: var(--text, #111);
+  line-height: 1.6;
+  transition: background-color 0.4s ease, color 0.4s ease;
+  min-height: 100vh;
+}
+
+/* Dark Mode Variables */
+body.dark-mode {
+  --bg: #121212;
+  --text: #f4f4f4;
+  --accent: #999;
+  --btn-bg: #f4f4f4;
+  --btn-text: #121212;
+  --card-bg: #1e1e1e;
+  --border: #333;
+}
+
+/* Light Mode Variables (default) */
+body:not(.dark-mode) {
+  --bg: #f4f4f4;
+  --text: #111;
+  --accent: #555;
+  --btn-bg: #111;
+  --btn-text: #fff;
+  --card-bg: #fff;
+  --border: #ccc;
+}
+
+/* Preloader */
+#preloader {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: var(--bg);
+  z-index: 9999;
+}
+
+/* Theme Toggle */
+.theme-toggle {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  background: var(--btn-bg);
+  color: var(--btn-text);
+  border: none;
+  border-radius: 50%;
+  padding: 0.5rem 0.6rem;
+  font-size: 1.2rem;
+  cursor: pointer;
+  z-index: 1000;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+}
+
+.theme-toggle:hover {
+  transform: scale(1.1);
+}
+
+/* Navigation bar */
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 56px;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 1.5rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  z-index: 999;
+  transition: transform 0.3s ease;
+}
+
+header.hide {
+  transform: translateY(-100%);
+}
+
+#branding {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#branding h1 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 0;
+  color: var(--text);
+}
+
+#branding .tagline {
+  font-size: 0.7rem;
+  color: var(--accent);
+  font-style: italic;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+nav {
+  display: flex;
+  gap: 1.2rem;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+}
+
+nav button {
+  background: transparent;
+  color: var(--text);
+  border: 1px solid var(--btn-bg);
+  padding: 0.35rem 1rem;
+  font-weight: 500;
+  font-size: 0.85rem;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+nav button:hover,
+nav button:focus-visible {
+  background: var(--btn-hover);
+  color: white;
+  border-color: var(--btn-hover);
+  transform: translateY(-1px);
+  outline: none;
+}
+
+/* Main Content */
+main {
+  max-width: 1100px;
+  margin: 5rem auto 4rem; /* Top margin for fixed header */
+  padding: 0 1.25rem;
+}
+
+/* About Section */
+
+.about-heading {
+  text-align: center;
+  padding-left: 20rem;
+  margin-bottom: 2rem;
+}
+
+.about-heading h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: var(--accent-color, #ffffff);
+}
+
+
+.about-section {
+  margin-bottom: 4rem;
+  text-align: center;
+}
+
+.about-section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.about-section .bio {
+  max-width: 800px;
+  margin: 0.8rem auto;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--text);
+}
+
+/* Gallery Sections */
+.gallery-section {
+  margin-bottom: 4rem;
+}
+
+.gallery-section h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 1.25rem;
+  text-align: center;
+  color: var(--text);
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.25rem;
+}
+
+.gallery img {
+  width: 100%;
+  height: auto;
+  border-radius: 14px;
+  object-fit: cover;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.07);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  cursor: pointer;
+}
+
+.gallery img:hover,
+.gallery img:focus-visible {
+  transform: scale(1.04);
+  box-shadow: 0 14px 36px rgba(0,0,0,0.18);
+  outline: none;
+}
+
+/* Booking Section */
+.booking-section {
+  max-width: 600px;
+  margin: 0 auto 4rem;
+  text-align: center;
+}
+
+.booking-section h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  color: var(--text);
+}
+
+.booking-section form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.booking-section input,
+.booking-section textarea {
+  font-size: 1rem;
+  padding: 0.8rem 1rem;
+  border-radius: 8px;
+  border: 1.5px solid var(--border);
+  background: transparent;
+  color: var(--text);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  font-family: 'Inter', sans-serif;
+  resize: vertical;
+}
+
+.booking-section input:focus,
+.booking-section textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 6px rgba(100, 100, 100, 0.3);
+}
+
+.booking-section button {
+  background: var(--btn-bg);
+  color: var(--btn-text);
+  border: none;
+  padding: 0.85rem 1rem;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 1.1rem;
+  cursor: pointer;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.12);
+  transition: background-color 0.3s ease, transform 0.25s ease;
+  user-select: none;
+}
+
+.booking-section button:hover,
+.booking-section button:focus-visible {
+  background: var(--accent);
+  color: var(--btn-text);
+  transform: translateY(-2px);
+  outline: none;
+}
+
+#msg {
+  margin-top: 0.5rem;
+  font-size: 1rem;
+  color: var(--accent);
+  min-height: 1.3rem;
+}
+
+/* Footer */
+footer {
+  padding: 2rem 1rem;
+  background: #111;
+  text-align: center;
+  color: #ccc;
+}
+
+.footer-connect {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 1.5rem;
+  background: #1b1b1b;
+  border: 1px solid #333;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.03);
+}
+
+.footer-connect h3 {
+  margin-bottom: 0.5rem;
+  font-size: 1.6rem;
+  color: #1e90ff;
+}
+
+.footer-connect p {
+  margin: 0.5rem 0;
+  font-size: 1rem;
+  color: #ccc;
+}
+
+.footer-connect .footer-link {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.6rem 1.4rem;
+  background: #1e90ff;
+  color: #fff;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.footer-connect .footer-link:hover {
+  background: #167ac6;
+  transform: scale(1.03);
+}
+
+/* AOS fade-up Animation Fallback */
+[data-aos="fade-up"] {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+[data-aos].aos-animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  header {
+    padding: 0.5rem 1rem;
+    height: 48px;
+  }
+
+  #branding {
+    max-width: 40%;
+    min-width: 120px;
+  }
+
+  #branding h1 {
+    font-size: 1rem;
+  }
+
+  #branding .tagline {
+    font-size: 0.7rem;
+  }
+
+  nav {
+    gap: 0.5rem;
+  }
+
+  nav button {
+    font-size: 0.8rem;
+    padding: 0.3rem 0.7rem;
+  }
+
+  main {
+    margin: 4rem auto 3rem;
+    padding: 0 1rem;
+  }
+
+  .gallery {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
+}
+/* Video Sneak Peek Section */
+.video-section {
+  padding: 3rem 1.5rem;
+  background-color: #000;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 2.2rem;
+  color: #fff;
+  margin-bottom: 2rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.video-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.video-container video {
+  width: 480px;
+  max-width: 100%;
+  border-radius: 15px;
+  box-shadow: 0 6px 20px rgba(255, 255, 255, 0.15);
+  outline: none;
+  transition: transform 0.3s ease;
+}
+
+.video-container video:hover {
+  transform: scale(1.02);
+}
+
+/* Apply to embedded Vimeo videos */
+.video-container iframe {
+  width: 480px;
+  max-width: 100%;
+  border-radius: 15px;
+  box-shadow: 0 6px 20px rgba(255, 255, 255, 0.15);
+  outline: none;
+  transition: transform 0.3s ease;
+}
+
+.video-container iframe:hover {
+  transform: scale(1.02);
+}
+
+
+
+
+.about-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.about-image img {
+  max-width: 300px;
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+}
+
+.about-text {
+  flex: 1;
+  min-width: 250px;
+}
+
+@media (max-width: 768px) {
+  .about-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .about-image img {
+    margin: 0 auto;
+  }
+}
+

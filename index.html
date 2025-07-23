@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>M. Abdullah Tiwana | Portfolio</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body class="dark-mode">
+
+    <!-- Preloader -->
+    <div id="preloader"></div>
+
+    <!-- Theme Toggle -->
+    <!-- <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark/light theme"></button> -->
+
+    <!-- Header with branding left and nav center -->
+    <header>
+        <div id="branding" aria-label="Site branding">
+            <h1>M. Abdullah Tiwana</h1>
+            <p class="tagline">Capturing Beauty, One Frame at a Time</p>
+        </div>
+        <nav aria-label="Primary navigation">
+            <button type="button" onclick="scrollToSection('about')">About</button>
+            <button type="button" onclick="scrollToSection('car')">Cars</button>
+            <button type="button" onclick="scrollToSection('landscape')">Landscapes</button>
+            <button type="button" onclick="scrollToSection('random')">Random</button>
+            <button type="button" onclick="scrollToSection('booking')">Book Appointment</button>
+            <button type="button" onclick="window.location.href='gallery.html'">Gallery</button>
+
+        </nav>
+    </header>
+
+    <main>
+        <!-- About Section -->
+        <section id="about" class="about-section" data-aos="fade-up" tabindex="-1">
+            <div class="about-heading">
+                <h2>About Me</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="images/me/20250331_171429.jpg" alt="M. Abdullah Tiwana Portrait" />
+                </div>
+                <div class="about-text">
+                    <p class="bio">
+                        I’m a 21-year-old student and an enthusiastic photographer who began capturing the world through
+                        my lens at the age of 18. Living with ADHD hasn’t been a limitation — it’s become a unique
+                        perspective
+                        that shapes how I experience life. It allows me to see details, feel emotions, and express
+                        creativity
+                        in ways that deeply influence every photo I take.
+                    </p>
+                    <p class="bio">
+                        I’m not just someone who clicks pictures — I tell stories, evoke moods, and chase light.
+                        Photography isn't just a hobby for me; it's the way I turn my ideas and visions into something
+                        real,
+                        something that exists beyond thought.
+                    </p>
+                    <p class="bio">
+                        Want to see the world through my eyes?
+                        <a href="https://www.instagram.com/m.abdullah_tiwana?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+                            target="_blank" rel="noopener noreferrer" class="insta-link">
+                            Visit my Instagram page
+                        </a>.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="video-intro" class="video-section" data-aos="fade-up">
+            <h2 class="section-title">Sneak Peek of What I Can Do</h2>
+            <p style="text-align: center; font-size: 0.95rem; color: #aaa; margin-top: -10px; margin-bottom: 20px;">
+                For the best experience, increase the video quality and view in fullscreen mode.
+            </p>
+            <div class="video-container" style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
+                <iframe src="https://player.vimeo.com/video/1103697356" width="640" height="360" frameborder="0"
+                    allow="autoplay; fullscreen; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+
+                <iframe src="https://player.vimeo.com/video/1103697442" width="640" height="360" frameborder="0"
+                    allow="autoplay; fullscreen; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+            </div>
+        </section>
+
+
+
+
+
+
+
+        <!-- Gallery Sections -->
+        <section id="car" class="gallery-section" data-aos="fade-up" tabindex="-1">
+            <h2>Cars</h2>
+            <div class="gallery">
+                <img src="images/car/car0.jpg" alt="Car 1" />
+                <img src="images/car/car9.jpg" alt="Car 2" />
+                <img src="images/car/car6.jpg" alt="Car 3" />
+            </div>
+        </section>
+
+        <section id="landscape" class="gallery-section" data-aos="fade-up" tabindex="-1">
+            <h2>Landscapes</h2>
+            <div class="gallery">
+                <img src="images/landscape/MG_6687.jpg" alt="Landscape 1" />
+                <img src="images/landscape/MG_6688_1.jpg" alt="Landscape 2" />
+                <img src="images/landscape/MG_7441.jpg" alt="Landscape 3" />
+            </div>
+        </section>
+
+        <section id="random" class="gallery-section" data-aos="fade-up" tabindex="-1">
+            <h2>Random</h2>
+            <div class="gallery">
+                <img src="images/random/Mid_Day_Nostalgia_15.jpg" alt="Random 1" />
+                <img src="images/random/Mid_Day_Nostalgia_13.jpg" alt="Random 2" />
+                <img src="images/random/MG_5874.jpg" alt="Random 3" />
+            </div>
+        </section>
+
+
+        <!-- Booking Form -->
+        <section id="booking" class="booking-section" data-aos="fade-up" tabindex="-1">
+            <h2>Book an Appointment</h2>
+            <form name="submit-to-google-sheet" novalidate>
+                <input type="text" name="name" placeholder="Your Full Name" required autocomplete="name" />
+
+                <input type="email" name="email" placeholder="Your Email Address" required autocomplete="email" />
+
+                <textarea name="message" placeholder="e.g. Car shoot for Honda Civic 2016 at sunset" rows="1"
+                    oninput="autoResize(this)" required></textarea>
+
+                <button type="submit">Submit</button>
+                <span id="msg" role="alert" aria-live="polite"></span>
+            </form>
+
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p class="footer-legal">© 2025 M. Abdullah Tiwana — Inspired by moments, captured in monochrome.</p>
+
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
