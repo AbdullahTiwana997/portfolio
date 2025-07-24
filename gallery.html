@@ -11,25 +11,29 @@
 </head>
 
 <body class="dark-mode">
-
     <div id="preloader"></div>
-     <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark/light theme">🌓</button> 
 
+    <!-- HEADER -->
     <header id="dashboard">
         <div id="branding">
             <h1>M. Abdullah Tiwana</h1>
             <p class="tagline">Capturing Beauty, One Frame at a Time</p>
         </div>
-        <nav aria-label="Gallery navigation">
-            <button type="button" onclick="scrollToSection('cars')">Cars</button>
-            <button type="button" onclick="scrollToSection('landscapes')">Landscapes</button>
-            <button type="button" onclick="scrollToSection('random')">Random</button>
-            <button type="button" onclick="scrollToSection('booking')">Book Appointment</button>
-            <button type="button" onclick="goBackToIndex()">Back to Index</button>
+
+        <!-- HAMBURGER -->
+        <button id="hamburger-toggle" aria-label="Toggle navigation">☰</button>
+
+        <!-- NAVIGATION -->
+        <nav id="nav-menu">
+            <button onclick="scrollToSection('cars')">Cars</button>
+            <button onclick="scrollToSection('landscapes')">Landscapes</button>
+            <button onclick="scrollToSection('random')">Random</button>
+            <button onclick="scrollToSection('booking')">Book Appointment</button>
+            <button onclick="goBackToIndex()">Back to Home</button>
         </nav>
     </header>
 
-
+    <!-- MAIN CONTENT -->
     <main>
         <section id="cars" class="gallery-section" data-aos="fade-up" tabindex="-1">
             <h2>Cars</h2>
@@ -49,13 +53,12 @@
 
     <footer>
         <p class="footer-legal">© 2025 M. Abdullah Tiwana — Inspired by moments, captured in monochrome.</p>
-
     </footer>
 
+    <!-- AOS JS -->
     <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 
     <script>
-        // Image arrays
         const cars = [
             "car0.jpg", "car1.jpg", "car10.jpg", "car11.jpg", "car12.jpg", "car13.jpg", "car15.jpg", "car14.jpg",
             "car16.jpg", "car17.jpg", "car18.jpg", "car19.jpg", "car2.jpg", "car3.jpg", "car4.jpg", "car5.jpg",
@@ -67,40 +70,32 @@
             "MG_6691_1.jpg", "MG_6772.jpg", "MG_7441.jpg", "MG_7462.jpg", "MG_7529.jpg"
         ];
 
-
         const randoms = [
             "Mid_Day_Nostalgia_13.jpg", "Mid_Day_Nostalgia_14.jpg", "Mid_Day_Nostalgia_15.jpg",
             "Mid_Day_Nostalgia_9.jpg", "MG_4621.jpg", "MG_4622.jpg", "MG_4629.jpg", "MG_4631.jpg",
             "MG_4638.jpg", "MG_5874.jpg", "MG_5909.jpg", "MG_5943.jpg", "MG_5971.jpg"
         ];
 
-
-        // Populate galleries
         function createGalleryImages(folder, images, containerId) {
             const container = document.getElementById(containerId);
             images.forEach(imgName => {
                 const img = document.createElement('img');
                 img.src = `images/${folder}/${imgName}`;
-                img.alt = imgName.replace(/[-_()0-9\.]+/g, ' ').trim(); // Optional: cleaner alt text
+                img.alt = imgName.replace(/[-_()0-9\.]+/g, ' ').trim();
                 img.className = 'gallery-item';
                 container.appendChild(img);
             });
         }
 
-        // On page load
         window.addEventListener('load', () => {
             createGalleryImages('car', cars, 'car-gallery');
             createGalleryImages('landscape', landscapes, 'landscape-gallery');
             createGalleryImages('random', randoms, 'random-gallery');
 
-            // Hide preloader
             document.getElementById('preloader').style.display = 'none';
-
-            // Initialize AOS
             AOS.init({ duration: 800, once: true });
         });
 
-        // Smooth scroll
         function scrollToSection(id) {
             const section = document.getElementById(id);
             if (section) {
@@ -108,36 +103,33 @@
             }
         }
 
-        // Go back to index page
         function goBackToIndex() {
-            window.location.href = 'index.html';  // Adjust filename if different
+            window.location.href = 'index.html';
         }
 
-        // Theme toggle
-        const themeToggle = document.getElementById('theme-toggle');
-        themeToggle.addEventListener('click', () => {
-            document.body.classList.toggle('dark-mode');
-        });
-
-        // Header hide/show on scroll
+        // Sticky Header Shrink on Scroll
         let lastScrollTop = 0;
-        const header = document.querySelector('header');
+        const header = document.getElementById('dashboard');
 
         window.addEventListener('scroll', () => {
             const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
-
             if (currentScroll > lastScrollTop && currentScroll > 100) {
-                // Scroll down -> hide header
                 header.classList.add('hide');
             } else {
-                // Scroll up -> show header
                 header.classList.remove('hide');
             }
-
             lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
         });
-    </script>
 
+        // Hamburger Menu Toggle
+        const hamburgerToggle = document.getElementById('hamburger-toggle');
+        const navMenu = document.getElementById('nav-menu');
+
+        hamburgerToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('open');
+        });
+
+    </script>
 </body>
 
 </html>
