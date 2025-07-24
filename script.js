@@ -43,11 +43,9 @@ const msg = document.getElementById('msg');
 if (form) {
   form.addEventListener('submit', e => {
     e.preventDefault();
-
     fetch(scriptURL, { method: 'POST', body: new FormData(form) })
       .then(response => {
         if (!response.ok) throw new Error('Network response was not ok');
-
         msg.innerHTML = "✅ Appointment booked successfully!";
         setTimeout(() => msg.innerHTML = "", 5000);
         form.reset();
