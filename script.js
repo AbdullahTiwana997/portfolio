@@ -36,16 +36,15 @@ window.addEventListener('load', () => {
 // Google Sheets Form Submission
 // ==============================
 
-const scriptURL = 'https://script.google.com/macros/s/AKfycbwKkx5gHVwINeSp3p8OSMj_iDBEbUqlXiAoUyoaYEH3TddXUi1YYdYPVuofXpSkNH-j/exec';
+const scriptURL = 'https://script.google.com/macros/s/AKfycbybMsOMut8AYCjEm6QC5acQx1eKkCl6l3gBqv7M8TonoR8w7fie0dGse-CwvGkgFs8X/exec';
 const form = document.forms['submit-to-google-sheet'];
 const msg = document.getElementById('msg');
 
 if (form) {
   form.addEventListener('submit', e => {
     e.preventDefault();
-    fetch(scriptURL, { method: 'POST', body: new FormData(form) })
-      .then(response => {
-        if (!response.ok) throw new Error('Network response was not ok');
+    fetch(scriptURL, { method: 'POST', mode: 'no-cors', body: new FormData(form) })
+      .then(() => {
         msg.innerHTML = "✅ Appointment booked successfully!";
         setTimeout(() => msg.innerHTML = "", 5000);
         form.reset();
@@ -55,6 +54,12 @@ if (form) {
         console.error("Form submission error:", error);
       });
   });
+}
+
+
+function autoResize(textarea) {
+  textarea.style.height = 'auto';
+  textarea.style.height = (textarea.scrollHeight) + 'px';
 }
 
 // ==============================
