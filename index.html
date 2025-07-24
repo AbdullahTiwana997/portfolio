@@ -17,6 +17,7 @@
 </head>
 
 <body class="dark-mode">
+
     <!-- Preloader -->
     <div id="preloader"></div>
 
@@ -27,28 +28,24 @@
             <p class="tagline">Capturing Beauty, One Frame at a Time</p>
         </div>
 
-        <!-- HAMBURGER BUTTON for mobile -->
-        <button id="hamburger-toggle" class="hamburger" aria-label="Toggle navigation">
-            ☰
-        </button>
+        <!-- Hamburger for Mobile -->
+        <button id="hamburger-toggle" class="hamburger" aria-label="Toggle navigation">☰</button>
 
         <nav aria-label="Primary navigation">
             <div class="nav-buttons">
-                <button type="button" onclick="scrollToSection('car')">Cars</button>
-                <button type="button" onclick="scrollToSection('landscape')">Landscapes</button>
-                <button type="button" onclick="scrollToSection('random')">Random</button>
-                <button type="button" onclick="scrollToSection('booking')">Book Appointment</button>
-                <button type="button" onclick="window.location.href='gallery.html'">Gallery</button>
-                <button type="button" onclick="scrollToSection('about')">About</button>
+                <button onclick="scrollToSection('car')">Cars</button>
+                <button onclick="scrollToSection('landscape')">Landscapes</button>
+                <button onclick="scrollToSection('random')">Random</button>
+                <button onclick="scrollToSection('booking')">Book Appointment</button>
+                <button onclick="window.location.href='gallery.html'">Gallery</button>
+                <button onclick="scrollToSection('about')">About</button>
             </div>
         </nav>
     </header>
 
-
-
     <main>
 
-
+        <!-- Hero Section -->
         <section class="hero" id="hero">
             <div class="hero-inner" data-aos="fade-up">
                 <h1>M. Abdullah Tiwana</h1>
@@ -56,8 +53,7 @@
             </div>
         </section>
 
-
-        <!-- Gallery Sections -->
+        <!-- Car Gallery -->
         <section id="car" class="gallery-section" data-aos="fade-up" tabindex="-1">
             <h2>Cars</h2>
             <div class="gallery">
@@ -67,7 +63,7 @@
             </div>
         </section>
 
-        <!-- Video Intro -->
+        <!-- Video Section -->
         <section id="video-intro" class="video-section" data-aos="fade-up">
             <h2 class="section-title">Sneak Peek of What I Can Do</h2>
             <p style="text-align: center; font-size: 0.95rem; color: #aaa; margin-top: -10px; margin-bottom: 20px;">
@@ -76,12 +72,12 @@
             <div class="video-container" style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
                 <iframe src="https://player.vimeo.com/video/1103697356" width="640" height="360" frameborder="0"
                     allow="autoplay; fullscreen; picture-in-picture" allowfullscreen loading="lazy"></iframe>
-
                 <iframe src="https://player.vimeo.com/video/1103697442" width="640" height="360" frameborder="0"
                     allow="autoplay; fullscreen; picture-in-picture" allowfullscreen loading="lazy"></iframe>
             </div>
         </section>
 
+        <!-- Landscape Gallery -->
         <section id="landscape" class="gallery-section" data-aos="fade-up" tabindex="-1">
             <h2>Landscapes</h2>
             <div class="gallery">
@@ -91,6 +87,7 @@
             </div>
         </section>
 
+        <!-- Random Gallery -->
         <section id="random" class="gallery-section" data-aos="fade-up" tabindex="-1">
             <h2>Random</h2>
             <div class="gallery">
@@ -99,6 +96,7 @@
                 <img src="images/random/MG_5874.jpg" alt="Candid expression" />
             </div>
         </section>
+
         <!-- About Section -->
         <section id="about" class="about-section" data-aos="fade-up" tabindex="-1">
             <div class="about-heading">
@@ -111,43 +109,42 @@
                 <div class="about-text">
                     <p class="bio">
                         I’m a 21-year-old student and an enthusiastic photographer who began capturing the world through
-                        my lens at the age of 18. Living with ADHD hasn’t been a limitation — it’s become a unique
-                        perspective that shapes how I experience life. It allows me to see details, feel emotions, and
-                        express
-                        creativity in ways that deeply influence every photo I take.
+                        my lens at the age of 18...
                     </p>
                     <p class="bio">
-                        I’m not just someone who clicks pictures — I tell stories, evoke moods, and chase light.
-                        Photography isn't just a hobby for me; it's the way I turn my ideas and visions into something
-                        real,
-                        something that exists beyond thought.
+                        I’m not just someone who clicks pictures — I tell stories, evoke moods, and chase light...
                     </p>
                     <p class="bio">
                         Want to see the world through my eyes?
                         <a href="https://www.instagram.com/m.abdullah_tiwana?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
-                            target="_blank" rel="noopener noreferrer" class="insta-link">
-                            Visit my Instagram page
-                        </a>.
+                            target="_blank" rel="noopener noreferrer" class="insta-link">Visit my Instagram page</a>.
                     </p>
                 </div>
             </div>
         </section>
 
         <!-- Booking Form -->
+        <!-- Booking Form -->
         <section id="booking" class="booking-section" data-aos="fade-up" tabindex="-1">
             <h2>Book an Appointment</h2>
-            <form name="submit-to-google-sheet" novalidate>
+            <form name="submit-to-google-sheet"
+                action="https://script.google.com/macros/s/AKfycbwKkx5gHVwINeSp3p8OSMj_iDBEbUqlXiAoUyoaYEH3TddXUi1YYdYPVuofXpSkNH-j/exec"
+                method="POST" target="hidden_iframe" onsubmit="formSubmitted(event)" novalidate>
                 <input type="text" name="name" placeholder="Your Full Name" required autocomplete="name" />
 
                 <input type="email" name="email" placeholder="Your Email Address" required autocomplete="email" />
 
                 <textarea name="message" placeholder="e.g. Car shoot for Honda Civic 2016 at sunset" rows="1"
-                    oninput="autoResize(this)" required></textarea>
+                    oninput="autoResize(this)" required style="height: 70px;"></textarea>
+
 
                 <button type="submit">Submit</button>
                 <span id="msg" role="alert" aria-live="polite"></span>
             </form>
+            <iframe name="hidden_iframe" style="display: none;"></iframe>
         </section>
+
+
     </main>
 
     <!-- Footer -->
@@ -160,6 +157,34 @@
     <!-- Scripts -->
     <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
     <script src="script.js"></script>
+
+    <!-- Form Handling Script -->
+    <script>
+        const form = document.forms['submit-to-google-sheet'];
+        const msg = document.getElementById('msg');
+
+        function formSubmitted(e) {
+            e.preventDefault();
+            fetch(form.action, {
+                method: "POST",
+                body: new FormData(form),
+            }).then(response => {
+                msg.innerHTML = "✅ Appointment booked successfully!";
+                setTimeout(() => {
+                    msg.innerHTML = "";
+                    form.reset();
+                }, 5000);
+            }).catch(error => {
+                msg.innerHTML = "❌ Submission failed. Please try again.";
+            });
+        }
+
+        function autoResize(textarea) {
+            textarea.style.height = 'auto';
+            textarea.style.height = textarea.scrollHeight + 'px';
+        }
+    </script>
+
 </body>
 
 </html>
