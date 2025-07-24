@@ -1,6 +1,12 @@
+/* --------------------------------------------------
+   GOOGLE FONT
+-------------------------------------------------- */
 /* Google font Inter is loaded in HTML */
 
-/* Reset */
+
+/* --------------------------------------------------
+   RESET AND BASE STYLES
+-------------------------------------------------- */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -20,6 +26,10 @@ body {
   min-height: 100vh;
 }
 
+
+/* --------------------------------------------------
+   THEME VARIABLES (DARK AND LIGHT MODES)
+-------------------------------------------------- */
 /* Dark Mode Variables */
 body.dark-mode {
   --bg: #121212;
@@ -42,7 +52,10 @@ body:not(.dark-mode) {
   --border: #ccc;
 }
 
-/* Preloader */
+
+/* --------------------------------------------------
+   PRELOADER
+-------------------------------------------------- */
 #preloader {
   position: fixed;
   top: 0; left: 0;
@@ -52,7 +65,10 @@ body:not(.dark-mode) {
   z-index: 9999;
 }
 
-/* Theme Toggle */
+
+/* --------------------------------------------------
+   THEME TOGGLE BUTTON
+-------------------------------------------------- */
 .theme-toggle {
   position: fixed;
   top: 16px;
@@ -73,8 +89,10 @@ body:not(.dark-mode) {
   transform: scale(1.1);
 }
 
-/* Navigation bar */
 
+/* --------------------------------------------------
+   HEADER / NAVIGATION BAR
+-------------------------------------------------- */
 header {
   position: fixed;
   top: 0;
@@ -96,6 +114,7 @@ header.hide {
   transform: translateY(-100%);
 }
 
+/* Branding (Name + Tagline) */
 #branding {
   display: flex;
   flex-direction: column;
@@ -118,11 +137,12 @@ header.hide {
   text-overflow: ellipsis;
 }
 
+/* Navigation Links */
 nav {
   display: flex;
   gap: 1.2rem;
   align-items: center;
-  justify-content: center;
+  justify-content: right;
   flex: 1;
 }
 
@@ -146,20 +166,26 @@ nav button:focus-visible {
   outline: none;
 }
 
-/* Main Content */
+
+/* --------------------------------------------------
+   MAIN CONTENT CONTAINER
+-------------------------------------------------- */
 main {
   max-width: 1100px;
   margin: 5rem auto 4rem; /* Top margin for fixed header */
   padding: 0 1.25rem;
 }
 
-/* About Section */
 
+/* --------------------------------------------------
+   ABOUT SECTION
+-------------------------------------------------- */
 .about-heading {
   text-align: center;
-  padding-left: 20rem;
+  padding-left: 0;
   margin-bottom: 2rem;
 }
+
 
 .about-heading h2 {
   font-size: 2.5rem;
@@ -167,7 +193,6 @@ main {
   letter-spacing: 1px;
   color: var(--accent-color, #ffffff);
 }
-
 
 .about-section {
   margin-bottom: 4rem;
@@ -188,7 +213,39 @@ main {
   color: var(--text);
 }
 
-/* Gallery Sections */
+/* About Content - Image & Text Side-by-Side */
+.about-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+@media (max-width: 768px) {
+  .about-content {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+
+.about-image img {
+  max-width: 300px;
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+}
+
+.about-text {
+  flex: 1;
+  min-width: 250px;
+}
+
+
+/* --------------------------------------------------
+   GALLERY SECTIONS
+-------------------------------------------------- */
 .gallery-section {
   margin-bottom: 4rem;
 }
@@ -208,14 +265,14 @@ main {
 }
 
 .gallery img {
-  width: 100%;
+  max-width: 100%;
   height: auto;
-  border-radius: 14px;
-  object-fit: cover;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.07);
-  transition: transform 0.35s ease, box-shadow 0.35s ease;
-  cursor: pointer;
+  display: block;
 }
+.gallery-section {
+  padding: 1rem;
+}
+
 
 .gallery img:hover,
 .gallery img:focus-visible {
@@ -224,7 +281,10 @@ main {
   outline: none;
 }
 
-/* Booking Section */
+
+/* --------------------------------------------------
+   BOOKING FORM SECTION
+-------------------------------------------------- */
 .booking-section {
   max-width: 600px;
   margin: 0 auto 4rem;
@@ -293,7 +353,50 @@ main {
   min-height: 1.3rem;
 }
 
-/* Footer */
+
+/* --------------------------------------------------
+   VIDEO SECTION (Sneak Peek)
+-------------------------------------------------- */
+.video-section {
+  padding: 3rem 1.5rem;
+  background-color: #000;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 2.2rem;
+  color: #fff;
+  margin-bottom: 2rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.video-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.video-container video,
+.video-container iframe {
+  width: 480px;
+  max-width: 100%;
+  border-radius: 15px;
+  box-shadow: 0 6px 20px rgba(255, 255, 255, 0.15);
+  outline: none;
+  transition: transform 0.3s ease;
+}
+
+.video-container video:hover,
+.video-container iframe:hover {
+  transform: scale(1.02);
+}
+
+
+/* --------------------------------------------------
+   FOOTER
+-------------------------------------------------- */
 footer {
   padding: 2rem 1rem;
   background: #111;
@@ -340,7 +443,10 @@ footer {
   transform: scale(1.03);
 }
 
-/* AOS fade-up Animation Fallback */
+
+/* --------------------------------------------------
+   AOS ANIMATION FALLBACK
+-------------------------------------------------- */
 [data-aos="fade-up"] {
   opacity: 0;
   transform: translateY(30px);
@@ -352,16 +458,21 @@ footer {
   transform: translateY(0);
 }
 
-/* Responsive */
+
+/* --------------------------------------------------
+   RESPONSIVE STYLES
+-------------------------------------------------- */
 @media (max-width: 768px) {
   header {
+    flex-direction: column;
+    align-items: flex-start;
+    height: auto;
     padding: 0.5rem 1rem;
-    height: 48px;
   }
 
   #branding {
-    max-width: 40%;
-    min-width: 120px;
+    width: 100%;
+    margin-bottom: 0.5rem;
   }
 
   #branding h1 {
@@ -373,12 +484,15 @@ footer {
   }
 
   nav {
+    width: 100%;
+    flex-wrap: wrap;
     gap: 0.5rem;
+    justify-content: flex-start;
   }
 
   nav button {
     font-size: 0.8rem;
-    padding: 0.3rem 0.7rem;
+    padding: 0.3rem 0.8rem;
   }
 
   main {
@@ -389,81 +503,7 @@ footer {
   .gallery {
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   }
-}
-/* Video Sneak Peek Section */
-.video-section {
-  padding: 3rem 1.5rem;
-  background-color: #000;
-  text-align: center;
-}
 
-.section-title {
-  font-size: 2.2rem;
-  color: #fff;
-  margin-bottom: 2rem;
-  font-weight: 600;
-  letter-spacing: 1px;
-}
-
-.video-container {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 1.5rem;
-}
-
-.video-container video {
-  width: 480px;
-  max-width: 100%;
-  border-radius: 15px;
-  box-shadow: 0 6px 20px rgba(255, 255, 255, 0.15);
-  outline: none;
-  transition: transform 0.3s ease;
-}
-
-.video-container video:hover {
-  transform: scale(1.02);
-}
-
-/* Apply to embedded Vimeo videos */
-.video-container iframe {
-  width: 480px;
-  max-width: 100%;
-  border-radius: 15px;
-  box-shadow: 0 6px 20px rgba(255, 255, 255, 0.15);
-  outline: none;
-  transition: transform 0.3s ease;
-}
-
-.video-container iframe:hover {
-  transform: scale(1.02);
-}
-
-
-
-
-.about-content {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 2rem;
-  flex-wrap: wrap;
-}
-
-.about-image img {
-  max-width: 300px;
-  width: 100%;
-  height: auto;
-  border-radius: 12px;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
-}
-
-.about-text {
-  flex: 1;
-  min-width: 250px;
-}
-
-@media (max-width: 768px) {
   .about-content {
     flex-direction: column;
     text-align: center;
@@ -474,3 +514,241 @@ footer {
   }
 }
 
+  .about-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .about-image img {
+    margin: 0 auto;
+  }
+/* --------------------------------------------
+   HAMBURGER BASE STYLE (Desktop Hidden)
+--------------------------------------------- */
+.hamburger {
+  display: none;
+  font-size: 2rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text, #111);
+}
+
+
+/* --------------------------------------------
+   RESPONSIVE STYLES FOR MOBILE (≤768px)
+--------------------------------------------- */
+@media (max-width: 768px) {
+  /* Adjust header layout for vertical stacking */
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem;
+  }
+
+  /* Show hamburger icon on mobile */
+  .hamburger {
+    display: block;
+  }
+
+  /* Hide nav by default on mobile */
+  nav {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    margin-top: 1rem;
+  }
+
+  /* Show nav when toggled */
+  nav.show {
+    display: flex;
+  }
+
+  /* Stack nav buttons vertically with spacing */
+  .nav-buttons {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 0.5rem;
+  }
+
+  /* Style for each mobile nav button */
+  nav button {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    text-align: left;
+    border-radius: 6px;
+    background-color: var(--card-bg);
+    color: var(--text);
+    border: 1px solid var(--border);
+  }
+
+  /* Hover effect for mobile nav buttons */
+  nav button:hover {
+    background-color: var(--accent);
+    color: var(--btn-text);
+  }
+}
+
+/* --------------------------------------------
+   STICKY HEADER STYLES
+--------------------------------------------- */
+#dashboard {
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  background-color: #000;
+  padding: 1rem 2rem;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Hide header on scroll up */
+#dashboard.hide {
+  transform: translateY(-100%);
+}
+
+/* --------------------------------------------
+   HAMBURGER TOGGLE BUTTON (ID version)
+--------------------------------------------- */
+#hamburger-toggle {
+  display: none;
+  font-size: 1.8rem;
+  background: none;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+/* --------------------------------------------
+   NAVIGATION MENU STYLES (Default)
+--------------------------------------------- */
+#nav-menu {
+  display: flex;
+  gap: 0.75rem;
+}
+
+/* Buttons inside nav */
+#nav-menu button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+
+/* --------------------------------------------
+   RESPONSIVE NAV MENU (≤768px)
+--------------------------------------------- */
+@media (max-width: 768px) {
+  /* Show hamburger toggle */
+  #hamburger-toggle {
+    display: block;
+  }
+
+  /* Hide nav menu initially */
+  #nav-menu {
+    display: none;
+    flex-direction: column;
+    margin-top: 1rem;
+  }
+
+  /* Show nav menu when toggled */
+  #nav-menu.open {
+    display: flex;
+  }
+}
+@media (max-width: 480px) {
+  main {
+    padding: 0 1rem;
+  }
+
+  .about-heading h2,
+  .about-section h2 {
+    font-size: 1.6rem;
+  }
+}
+
+/* --------------------------------------------
+   Hero Section
+--------------------------------------------- */
+/* --------------------------------------------
+   Hero Section (Refined for Consistency)
+--------------------------------------------- */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1.5rem;
+  min-height: 100vh;
+  background-color: #000; /* Fallback color */
+  background-image: url('images/me/cover.jpg');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  position: relative;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4); /* Dark overlay for readability */
+  z-index: 0;
+}
+
+.hero-text {
+  position: relative;
+  z-index: 1;
+  max-width: 900px;
+  width: 100%;
+  color: #fff;
+  text-align: center;
+  padding: 1rem;
+}
+
+.hero-text h1 {
+  font-size: 3rem;
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.hero-text p {
+  font-size: 1.2rem;
+  color: #ccc;
+  line-height: 1.6;
+}
+
+/* 📱 Responsive for Tablets & Phones */
+@media (max-width: 768px) {
+  .hero {
+    padding: 1.5rem 1rem;
+    min-height: 90vh;
+    background-position: center;
+  }
+
+  .hero-text h1 {
+    font-size: 2.2rem;
+  }
+
+  .hero-text p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-text h1 {
+    font-size: 1.8rem;
+  }
+
+  .hero-text p {
+    font-size: 0.95rem;
+  }
+}
